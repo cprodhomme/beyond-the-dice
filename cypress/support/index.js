@@ -1,0 +1,30 @@
+// ***********************************************************
+// This example support/index.js is processed and
+// loaded automatically before your test files.
+//
+// This is a great place to put global configuration and
+// behavior that modifies Cypress.
+//
+// You can change the location of this file or turn off
+// automatically serving support files with the
+// 'supportFile' configuration option.
+//
+// You can read more here:
+// https://on.cypress.io/configuration
+// ***********************************************************
+
+// Import commands.js using ES2015 syntax:
+import './commands'
+
+// Alternatively you can use CommonJS syntax:
+// require('./commands')
+
+const cypressFirebasePlugin = require('cypress-firebase').plugin
+
+module.exports = (on, config) => {
+  // `on` is used to hook into various events Cypress emits
+  // `config` is the resolved Cypress config
+  
+  // Return extended config (with settings from .firebaserc)
+  return cypressFirebasePlugin(config)
+}
